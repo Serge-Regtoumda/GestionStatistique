@@ -125,9 +125,9 @@ public class Service {
                 resultat.add(employee);
             }
 
-            for (Employee row : resultat) {
-                System.out.println(row.toString());
-            }
+//            for (Employee row : resultat) {
+//                System.out.println(row.toString());
+//            }
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -160,9 +160,9 @@ public class Service {
                 resultat.add(employee);
             }
 
-            for (Employee row : resultat) {
-                System.out.println(row.toString());
-            }
+//            for (Employee row : resultat) {
+//                System.out.println(row.toString());
+//            }
 
         } catch (Exception e) {
             e.printStackTrace();
