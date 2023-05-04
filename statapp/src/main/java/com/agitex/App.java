@@ -67,7 +67,7 @@ public class App
                                 for(Employee emp: employeeList){
                                     System.out.println(emp.toString());
                                 }
-                                choix=0;
+                                choix=3;
                                 break;
                             case 2:
                                     List<String> professions = new ArrayList<String>();
@@ -92,6 +92,15 @@ public class App
                                     System.out.println("Salaire moyenne: "+ service.calculeSalaireMoyenne(employeeProfession)+ "K€");
                                     choix=3;
                                 break;
+                            case 3:
+                                System.out.println("MENU : 0: Quitter le programme || 1. Voir la liste || 2. Calculer le salaire moyen par profession");
+                                while (!sc.hasNextInt()) {
+                                    System.out.println("Vous devez entrer un nombre dans le menu !");
+                                    sc.next();
+                                }
+                                choix = sc.nextInt();
+
+                                break;
 
                             default:
                                 System.out.println("Choix inconnu");
@@ -104,20 +113,213 @@ public class App
                 System.out.println(e);
             }
 
-
-
         } else if (filePath.endsWith(".txt")) {
-            employeeList = service.readTXT(filePath);
-            employeeProfession = service.getEmplyeesByProfession(employeeList, "informaticien");
-            System.out.println("Salaire moyenne: "+ service.calculeSalaireMoyenne(employeeProfession)+ "K€");
+            try {
+                employeeList = service.readTXT(filePath);
+
+                System.out.println("Chargement ok !");
+                int choix;
+
+                do{
+                    System.out.println("MENU : 0: Quitter le programme || 1. Voir la liste || 2. Calculer le salaire moyen par profession");
+                    while (!sc.hasNextInt()) {
+                        System.out.println("Vous devez entrer un nombre dans le menu !");
+                        sc.next();
+                    }
+                    choix = sc.nextInt();
+
+                    int menu;
+                    while (choix!=0){
+                        switch (choix) {
+                            case 1:
+                                System.out.println("Liste des employees");
+
+                                for(Employee emp: employeeList){
+                                    System.out.println(emp.toString());
+                                }
+                                choix=3;
+                                break;
+                            case 2:
+                                List<String> professions = new ArrayList<String>();
+
+                                System.out.println("Liste des professions");
+                                for(Employee emp: employeeList){
+                                    if(!professions.contains(emp.getProfession().toLowerCase())){
+                                        System.out.println(emp.getProfession());
+                                        professions.add(emp.getProfession().toLowerCase());
+                                    }
+                                }
+
+                                String profession;
+
+                                do{
+                                    System.out.println("ENTRER LA PROFESSION : ");
+                                    profession = sc.nextLine();
+                                } while (!professions.contains(profession.toLowerCase()));
+
+                                employeeProfession = service.getEmplyeesByProfession(employeeList, profession);
+
+                                System.out.println("Salaire moyenne: "+ service.calculeSalaireMoyenne(employeeProfession)+ "K€");
+                                choix=3;
+                                break;
+                            case 3:
+                                System.out.println("MENU : 0: Quitter le programme || 1. Voir la liste || 2. Calculer le salaire moyen par profession");
+                                while (!sc.hasNextInt()) {
+                                    System.out.println("Vous devez entrer un nombre dans le menu !");
+                                    sc.next();
+                                }
+                                choix = sc.nextInt();
+
+                                break;
+
+                            default:
+                                System.out.println("Choix inconnu");
+                                break;
+                        }
+                    }
+                } while (choix < 0 || choix > 2);
+
+            } catch (Exception e){
+                System.out.println(e);
+            }
         } else if (filePath.endsWith(".xml")) {
-            employeeList = service.readXML(filePath);
-            employeeProfession = service.getEmplyeesByProfession(employeeList, "comptable");
-            System.out.println("Salaire moyenne: "+ service.calculeSalaireMoyenne(employeeProfession)+ "K€");
+            try {
+                employeeList = service.readXML(filePath);
+
+                System.out.println("Chargement ok !");
+                int choix;
+
+                do{
+                    System.out.println("MENU : 0: Quitter le programme || 1. Voir la liste || 2. Calculer le salaire moyen par profession");
+                    while (!sc.hasNextInt()) {
+                        System.out.println("Vous devez entrer un nombre dans le menu !");
+                        sc.next();
+                    }
+                    choix = sc.nextInt();
+
+                    int menu;
+                    while (choix!=0){
+                        switch (choix) {
+                            case 1:
+                                System.out.println("Liste des employees");
+
+                                for(Employee emp: employeeList){
+                                    System.out.println(emp.toString());
+                                }
+                                choix=3;
+                                break;
+                            case 2:
+                                List<String> professions = new ArrayList<String>();
+
+                                System.out.println("Liste des professions");
+                                for(Employee emp: employeeList){
+                                    if(!professions.contains(emp.getProfession().toLowerCase())){
+                                        System.out.println(emp.getProfession());
+                                        professions.add(emp.getProfession().toLowerCase());
+                                    }
+                                }
+
+                                String profession;
+
+                                do{
+                                    System.out.println("ENTRER LA PROFESSION : ");
+                                    profession = sc.nextLine();
+                                } while (!professions.contains(profession.toLowerCase()));
+
+                                employeeProfession = service.getEmplyeesByProfession(employeeList, profession);
+
+                                System.out.println("Salaire moyenne: "+ service.calculeSalaireMoyenne(employeeProfession)+ "K€");
+                                choix=3;
+                                break;
+                            case 3:
+                                System.out.println("MENU : 0: Quitter le programme || 1. Voir la liste || 2. Calculer le salaire moyen par profession");
+                                while (!sc.hasNextInt()) {
+                                    System.out.println("Vous devez entrer un nombre dans le menu !");
+                                    sc.next();
+                                }
+                                choix = sc.nextInt();
+
+                                break;
+
+                            default:
+                                System.out.println("Choix inconnu");
+                                break;
+                        }
+                    }
+                } while (choix < 0 || choix > 2);
+
+            } catch (Exception e){
+                System.out.println(e);
+            }
         } else if (filePath.endsWith(".json")) {
-            employeeList = service.readJSON(filePath);
-            employeeProfession = service.getEmplyeesByProfession(employeeList, "policier");
-            System.out.println("Salaire moyenne: "+ service.calculeSalaireMoyenne(employeeProfession) + "K€");
+            try {
+                employeeList = service.readJSON(filePath);
+
+                System.out.println("Chargement ok !");
+                int choix;
+
+                do{
+                    System.out.println("MENU : 0: Quitter le programme || 1. Voir la liste || 2. Calculer le salaire moyen par profession");
+                    while (!sc.hasNextInt()) {
+                        System.out.println("Vous devez entrer un nombre dans le menu !");
+                        sc.next();
+                    }
+                    choix = sc.nextInt();
+
+                    int menu;
+                    while (choix!=0){
+                        switch (choix) {
+                            case 1:
+                                System.out.println("Liste des employees");
+
+                                for(Employee emp: employeeList){
+                                    System.out.println(emp.toString());
+                                }
+                                choix=3;
+                                break;
+                            case 2:
+                                List<String> professions = new ArrayList<String>();
+
+                                System.out.println("Liste des professions");
+                                for(Employee emp: employeeList){
+                                    if(!professions.contains(emp.getProfession().toLowerCase())){
+                                        System.out.println(emp.getProfession());
+                                        professions.add(emp.getProfession().toLowerCase());
+                                    }
+                                }
+
+                                String profession;
+
+                                do{
+                                    System.out.println("ENTRER LA PROFESSION : ");
+                                    profession = sc.nextLine();
+                                } while (!professions.contains(profession.toLowerCase()));
+
+                                employeeProfession = service.getEmplyeesByProfession(employeeList, profession);
+
+                                System.out.println("Salaire moyenne: "+ service.calculeSalaireMoyenne(employeeProfession)+ "K€");
+                                choix=3;
+                                break;
+                            case 3:
+                                System.out.println("MENU : 0: Quitter le programme || 1. Voir la liste || 2. Calculer le salaire moyen par profession");
+                                while (!sc.hasNextInt()) {
+                                    System.out.println("Vous devez entrer un nombre dans le menu !");
+                                    sc.next();
+                                }
+                                choix = sc.nextInt();
+
+                                break;
+
+                            default:
+                                System.out.println("Choix inconnu");
+                                break;
+                        }
+                    }
+                } while (choix < 0 || choix > 2);
+
+            } catch (Exception e){
+                System.out.println(e);
+            }
         } else {
             System.out.println("Format de fichier non pris en charge.");
         }
