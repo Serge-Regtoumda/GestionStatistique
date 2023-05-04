@@ -41,7 +41,7 @@ public class App
 
         Service service = new Service();
 
-//        String filePath = "/Users/sergeregtoumda/java-workspace/GestStat/statapp/target/classes/com/agitex/data.csv"; // Remplacez cette valeur par le chemin vers votre fichier
+//        String filePath = "/Users/sergeregtoumda/java-workspace/GestStat/statapp/target/classes/com/agitex/data.json"; // Remplacez cette valeur par le chemin vers votre fichier
 
         if (filePath.endsWith(".csv")) {
             try {
