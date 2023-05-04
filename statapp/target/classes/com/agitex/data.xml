@@ -1,0 +1,9 @@
+<employeesList>
+    <employee nom="Zous" prenom="Adrien" age="25" profession="informaticien" salaire="35" />
+    <employee nom="Ducroc" prenom="Mathilde" age="32" profession="informaticien" salaire="38" />
+    <employee nom="Joy" prenom="Bruno" age="29" profession="comptable" salaire="33" />
+    <employee nom="Basr" prenom="Julien" age="43" profession="policier" salaire="24" />
+    <employee nom="Bouaz" prenom="Teff" age="52" profession="boulanger" salaire="45" />
+    <employee nom="Leroy" prenom="Ben" age="48" profession="comptable" salaire="26" />
+    <employee nom="Beroy" prenom="Celine" age="28" profession="comptable" salaire="37" />
+</employeesList>
